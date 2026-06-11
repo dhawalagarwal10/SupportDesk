@@ -112,6 +112,9 @@ function statusLabel(s) {
 }
 
 function timeAgo(str) {
+  if (str && !str.endsWith('Z')) {
+    str = str.replace(' ', 'T') + 'Z';
+  }
   let now = new Date();
   let d = new Date(str);
   let diff = Math.floor((now - d) / 1000);
